@@ -1,17 +1,19 @@
 import React, { useRef } from 'react';
 
-const NewTodo = () => {
+const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = props => {
   const todoTextInputRef = useRef<HTMLInputElement>(null);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    // 명확하게 값이 data || null 일 때 앞에 ! 사용한다.
+    const enteredText = todoTextInputRef.current!.value;
 
-    const enteredText = todoTextInputRef.current?.value;
-
-    if (enteredText?.trim().length === 0) {
+    if (enteredText.trim().length === 0) {
       // throw an error
       return;
     }
+
+    props.onAddTodo(enteredText);
   };
   return (
     <form onSubmit={submitHandler}>
