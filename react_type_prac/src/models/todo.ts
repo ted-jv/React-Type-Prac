@@ -3,7 +3,7 @@ class Todo {
   text: string;
 
   constructor(todoText: string) {
-    this.id = new Date().toLocaleDateString();
+    this.id = new Date().toISOString();
     this.text = todoText;
   }
 }
