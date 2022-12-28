@@ -14,7 +14,7 @@ export const TodosContext = React.createContext<TodosContextObj>({
   removeTodo: (id: string) => {},
 });
 
-// TodosContextProvider 함수는 App에서 사용이 필요한 곳에 감싸준다. children 또한 명시해줘야함
+//! TodosContextProvider 함수는 App에서 사용이 필요한 곳에 감싸준다. children 또한 명시해줘야함 ( children?: React.ReactNode )
 const TodosContextProvider: React.FC<{ children?: React.ReactNode }> = props => {
   // const todos = [new Todo('Hi'), new Todo('Hello')];
   const [todos, setTodos] = useState<Todo[]>([]);
